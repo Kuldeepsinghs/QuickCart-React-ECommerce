@@ -1,0 +1,56 @@
+@import "tailwindcss";
+/* .active{
+    border-bottom: 2px solid blue;
+    color: azure purple;
+} */
+ /* HTML: <div class="loader"></div> */
+
+ .container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 20vh;
+}
+    /* Main circle */
+    .loader {
+      background-color: blue;
+      width: 60px;
+      aspect-ratio: 1;
+      box-shadow: 0 0 0 4px #620404 inset;
+      border-radius: 50%;
+      position: relative;
+      animation: rotateMain 3s linear infinite;
+    }
+
+    /* Orbit dots */
+    .loader::before,
+    .loader::after {
+      content: "";
+      position: absolute;
+      width: 15px;
+      height: 15px;
+      background: blue;
+      border-radius: 50%;
+      top: 50%;
+      left: 50%;
+      transform-origin: -30px 0;
+      animation: rotateDot 1s linear infinite;
+    }
+
+    /* Opposite dot */
+    .loader::after {
+      animation-delay: -0.5s;
+    }
+
+    /* Animations */
+    @keyframes rotateMain {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    @keyframes rotateDot {
+      to {
+        transform: rotate(360deg);
+      }
+    }
